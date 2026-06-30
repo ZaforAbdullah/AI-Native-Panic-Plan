@@ -1,0 +1,290 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ─────────────────────────────────────────────────────────────
+   Calm Paper — PanicPlan design system
+   Light (paper) is the default. Dark (lamp) is a real second theme.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Palette · Light · Reading Room ── */
+  --paper:          #ebe9e0;
+  --paper-deep:     #dfdcd0;
+  --paper-card:     #f4f1e6;
+  --paper-sunk:     #e3e0d3;
+  --ink:            #14181a;
+  --ink-2:          #2f3538;
+  --mute:           #6a6c66;
+  --mute-2:         #95968d;
+  --rule:           #d3d0c0;
+  --rule-soft:      #e5e2d3;
+  --teal:           #155766;   /* primary accent */
+  --teal-deep:      #0d3a45;
+  --teal-soft:      #d2dfe3;
+  --sage:           #6a7d4a;
+  --sage-soft:      #e8ebd5;
+  --amber:          #a86415;
+  --amber-soft:     #efe0c5;
+  --danger:         #9c2d1f;
+  --danger-soft:    #efd6d1;
+
+  /* ── shadcn / Tailwind semantic aliases ── */
+  --background:          var(--paper);
+  --foreground:          var(--ink);
+  --card:                var(--paper-card);
+  --card-foreground:     var(--ink);
+  --popover:             var(--paper-card);
+  --popover-foreground:  var(--ink);
+  --primary:             var(--teal);
+  --primary-foreground:  #ffffff;
+  --secondary:           var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted:               var(--paper-sunk);
+  --muted-foreground:    var(--mute);
+  --accent:              var(--teal-soft);
+  --accent-foreground:   var(--teal-deep);
+  --destructive:         var(--danger);
+  --border:              var(--rule);
+  --input:               var(--rule);
+  --ring:                var(--teal);
+  --radius:              0.625rem;
+
+  /* ── Typography ── */
+  --font-sans:  "Geist", ui-sans-serif, sans-serif;
+  --font-mono:  "Geist Mono", ui-monospace, monospace;
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+}
+
+.dark {
+  /* ── Palette · Dark · Lamp ── */
+  --paper:          #131618;
+  --paper-deep:     #1a1d20;
+  --paper-card:     #1c2025;
+  --paper-sunk:     #161a1d;
+  --ink:            #e8ece8;
+  --ink-2:          #c4c9c5;
+  --mute:           #7e837e;
+  --mute-2:         #545955;
+  --rule:           rgba(232, 236, 232, 0.10);
+  --rule-soft:      rgba(232, 236, 232, 0.06);
+  --teal:           #6fa4ad;
+  --teal-deep:      #4f8590;
+  --teal-soft:      rgba(111, 164, 173, 0.18);
+  --sage:           #a3b582;
+  --sage-soft:      rgba(163, 181, 130, 0.16);
+  --amber:          #d99b3a;
+  --amber-soft:     rgba(217, 155, 58, 0.16);
+  --danger:         #d96a52;
+  --danger-soft:    rgba(217, 106, 82, 0.14);
+
+  /* shadcn aliases — dark */
+  --background:          var(--paper);
+  --foreground:          var(--ink);
+  --card:                var(--paper-card);
+  --card-foreground:     var(--ink);
+  --popover:             var(--paper-card);
+  --popover-foreground:  var(--ink);
+  --primary:             var(--teal);
+  --primary-foreground:  #0d3a45;
+  --secondary:           var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted:               var(--paper-sunk);
+  --muted-foreground:    var(--mute);
+  --accent:              var(--teal-soft);
+  --accent-foreground:   var(--ink);
+  --destructive:         var(--danger);
+  --border:              var(--rule);
+  --input:               rgba(232, 236, 232, 0.12);
+  --ring:                var(--teal);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Tailwind theme wiring ── */
+@theme inline {
+  --font-sans:              var(--font-sans);
+  --font-mono:              var(--font-mono);
+  --font-serif:             var(--font-serif);
+  --color-background:       var(--background);
+  --color-foreground:       var(--foreground);
+  --color-card:             var(--card);
+  --color-card-foreground:  var(--card-foreground);
+  --color-primary:          var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:        var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:            var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:           var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive:      var(--destructive);
+  --color-border:           var(--border);
+  --color-input:            var(--input);
+  --color-ring:             var(--ring);
+  /* Extended palette exposed as Tailwind utilities */
+  --color-paper:            var(--paper);
+  --color-paper-deep:       var(--paper-deep);
+  --color-paper-card:       var(--paper-card);
+  --color-paper-sunk:       var(--paper-sunk);
+  --color-ink:              var(--ink);
+  --color-ink-2:            var(--ink-2);
+  --color-mute:             var(--mute);
+  --color-rule:             var(--rule);
+  --color-teal:             var(--teal);
+  --color-teal-deep:        var(--teal-deep);
+  --color-teal-soft:        var(--teal-soft);
+  --color-sage:             var(--sage);
+  --color-sage-soft:        var(--sage-soft);
+  --color-amber-warm:       var(--amber);
+  --color-amber-soft:       var(--amber-soft);
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
+}
+
+/* ── Base styles ── */
+@layer base {
+  * { box-sizing: border-box; @apply border-border outline-ring/50; }
+
+  html { font-family: var(--font-sans); }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+  }
+
+  /* Serif utility class */
+  .font-serif { font-family: var(--font-serif); }
+  .font-mono  { font-family: var(--font-mono); }
+}
+
+/* ── Component utilities ── */
+
+/* Logo mark — panic·plan in italic serif with teal dot */
+.logo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  user-select: none;
+}
+.logo .dot { color: var(--teal); font-style: normal; }
+
+/* Monospace metadata labels */
+.meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* Calm Paper session card */
+.session-card {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  align-items: center;
+  transition: border-color 0.15s ease;
+}
+.session-card:hover        { border-color: var(--ink); }
+.session-card[data-now]    { border-color: var(--teal); }
+.session-card[data-done]   { opacity: 0.65; }
+
+/* Calm Paper topic chip */
+.topic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 8px;
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 12.5px;
+  color: var(--ink);
+}
+.topic-chip[data-importance="critical"] { background: var(--danger-soft); border-color: transparent; }
+.topic-chip[data-importance="high"]     { background: var(--amber-soft);  border-color: transparent; }
+.topic-chip[data-importance="low"]      { color: var(--mute); }
+
+/* Reader layout for lesson content */
+.lesson-reader {
+  max-width: 660px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.lesson-reader h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.lesson-reader h2 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  margin: 28px 0 8px;
+  color: var(--ink);
+}
+.lesson-reader p { color: var(--ink-2); margin: 0 0 12px; max-width: 64ch; }
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar > div {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Streak badge */
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  background: var(--amber-soft);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+}
+
+/* Bottom tab bar (mobile) */
+.bottom-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--rule);
+  background: var(--paper-card);
+  padding: 8px 0 env(safe-area-inset-bottom, 16px);
+}
+
+/* Fade-and-settle animation (Calm Paper motion principle) */
+@keyframes settle {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-settle { animation: settle 0.45s ease forwards; }
+.animate-settle-2 { animation: settle 0.45s ease 0.06s both; }
+.animate-settle-3 { animation: settle 0.45s ease 0.12s both; }

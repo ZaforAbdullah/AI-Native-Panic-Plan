@@ -1,0 +1,26 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+python-jose[cryptography]==3.3.0
+bcrypt==4.2.1
+python-multipart==0.0.12
+python-dotenv==1.0.1
+pydantic==2.10.3
+
+# LangChain LCEL
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+langchain-google-genai>=2.0.0
+langchain-community>=0.3.0
+
+# Observability
+langfuse>=2.0.0
+
+# PDF analysis
+pdfplumber>=0.11.0
+
+# Supabase pgvector — required vector store backend
+supabase>=2.0.0
+
