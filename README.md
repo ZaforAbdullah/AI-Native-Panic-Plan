@@ -2,7 +2,7 @@
 
 Exam study scheduler with an AI-generated daily plan, per-topic lessons, RAG-backed tutor chat, and adaptive rescheduling. Built with FastAPI, Next.js, LangChain LCEL, and Supabase pgvector.
 
-**[Live Demo](https://your-demo-url.vercel.app)** <!-- replace with your Vercel URL -->
+**[Live Demo](https://panic-plan.vercel.app/)**
 
 ---
 
